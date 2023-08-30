@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScriptKeys | Pricing</title>
+  <link rel="stylesheet" href="Pricing.css">
+</head>
+<body>
+  <header>
+    <nav class="sidebar">
+      <ul class="sidebar-menu">
+        <li><a href="http://127.0.0.1:5500/Home%20Page/Home.html">Home</a></li>
+        <li><a href="http://127.0.0.1:5500/Home%20Page/Pricing%20page/Pricing.html">Pricing</a></li>
+        <li><a href="http://127.0.0.1:5500/Home%20Page/Policy%20Page/Policy.html">Policy</a></li>
+        <li><a href="http://127.0.0.1:5500/Home%20Page/FAQs%20Page/FAQs.Html">FAQs</a></li>
+        <li><a href="http://127.0.0.1:5500/Home%20Page/Contact%20Page/Contact.html">Contact Us</a></li>
+        <li><a href="http://127.0.0.1:5500/Home%20Page/Download%20Page/Download.html#">Download</a></li>
+        <li><a href="http://127.0.0.1:5000/">Chat Page</a></li>
+        <li><a href="http://127.0.0.1:5500/Home%20Page/Dashboard.html">Dashboard</a></li>
+        <li><a href="http://127.0.0.1:5500/Home%20Page/Typing%20Game/Game.html">Typing Game</a></li>
+      </ul>
+    </nav>
+    <div class="logo">
+      <img src="ai.png" alt="ai">
+      <h1>ScriptKeys</h1>
+      <p>AI-Powered Code Generation</p>
+    </div>
+  </header>
+  <main>
+    <section class="pricing">
+      <h2>Pricing Plans</h2>
+      <p>Choose a plan that works for you:</p>
+      <div class="pricing-container">
+        <div class="pricing-card">
+          <h3>Basic</h3>
+          <div class="price">$9.99<span>/month</span></div>
+          <ul>
+            <li>Access to the ScriptKeys Library</li>
+            <li>Access to ScriptKeys AI</li>
+            <li>Access to Roblox Code Library</li>
+            <li>Access to Unity Code Library</li>
+            <li>Access to Unreal Code Library</li>
+          </ul>
+          <a href="#" class="btn-primary" id="basic-plan-btn">Select Plan</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Pro</h3>
+          <div class="price">$29.99<span>/month</span></div>
+          <ul>
+            <li>Access to all Basic features</li>
+            <li>Access to Minecraft (Fabric) Code Library</li>
+            <li>Access to Blender Code Library</li>
+            <li>Access to a custom code generation model</li>
+            <li>Access to priority support</li>
+          </ul>
+          <a href="#" class="btn-primary" id="pro-plan-btn">Select Plan</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <div class="price">$99.99<span>/month</span></div>
+          <ul>
+            <li>Access to all Pro features</li>
+            <li>Custom integration with your own AI models</li>
+            <li>Dedicated account manager</li>
+            <li>Customized solutions for your business</li>
+          </ul>
+          <a href="#" class="btn-primary" id="enterprise-plan-btn">Select Plan</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="user-info-form" style="display: none;">
+      <div class="main-content">
+        <h2>Provide Your Information</h2>
+        <form id="info-form">
+          <input type="text" id="full-name" placeholder="Full Name" required>
+          <input type="text" id="address" placeholder="Address" required>
+          <input type="tel" id="card-number" placeholder="Card Number" required>
+          <input type="text" id="expiry-date" placeholder="Expiry Date (MM/YY)" required>
+          <input type="text" id="cvv" placeholder="CVV" required>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Function to show the user information form
+    function showUserInfoForm() {
+      document.querySelector('.pricing').style.display = 'none';
+      document.getElementById('user-info-form').style.display = 'block';
+    }
+
+    // Function to handle form submission
+    function handleFormSubmission(e) {
+      e.preventDefault();
+      // Add your logic here to process the form data
+      // For example, you can retrieve the values of the form fields
+      // using document.getElementById('element-id').value and then process the data as needed.
+
+      // After processing, you can show a success message or redirect the user to another page.
+      alert('Form submitted successfully!');
+    }
+
+    // Attach event listeners to the "Select Plan" buttons
+    document.getElementById('basic-plan-btn').addEventListener('click', function (e) {
+      e.preventDefault();
+      showUserInfoForm();
+    });
+
+    document.getElementById('pro-plan-btn').addEventListener('click', function (e) {
+      e.preventDefault();
+      showUserInfoForm();
+    });
+
+    document.getElementById('enterprise-plan-btn').addEventListener('click', function (e) {
+      e.preventDefault();
+      showUserInfoForm();
+    });
+
+    // Attach event listener to the user info form
+    const userInfoForm = document.querySelector('#info-form');
+    userInfoForm.addEventListener('submit', handleFormSubmission);
+  </script>
+</body>
+</html>

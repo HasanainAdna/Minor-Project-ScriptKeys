@@ -1,0 +1,229 @@
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.sidebar {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar .logo {
+  padding: 1rem;
+  text-align: center;
+}
+
+.sidebar .logo h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar .logo p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.sidebar-menu {
+  padding: 1rem;
+}
+
+.sidebar-menu li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-menu a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 1rem;
+  transition: all 0.2s ease-in-out;
+  display: block;
+}
+
+.sidebar-menu a:hover {
+  background-color: #f2f2f2;
+}
+
+main {
+  margin-left: 250px;
+  padding: 2rem;
+}
+
+.feature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.feature-image img {
+  max-width: 500px;
+  height: auto;
+}
+
+.feature-text {
+  max-width: 600px;
+  margin: 0 2rem;
+  text-align: center;
+}
+
+.feature h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.feature p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+footer {
+  background-color: #f2f2f2;
+  padding: 1rem;
+  text-align: center;
+}
+
+footer p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Dashboard styles */
+#dashboard-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.dashboard {
+  text-align: center;
+}
+
+.dashboard h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.dashboard ul {
+  margin-bottom: 1rem;
+}
+
+.dashboard li {
+  margin-bottom: 0.5rem;
+}
+
+.dashboard a {
+  display: block;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.dashboard a:hover {
+  background-color: #f2f2f2;
+}
+
+/* Accounts section styles */
+.section.accounts {
+  margin-bottom: 2rem;
+}
+
+.section.accounts h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.section.accounts p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+/* Subscriptions section styles */
+.section.subscriptions {
+  margin-bottom: 2rem;
+}
+
+.section.subscriptions h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.section.subscriptions p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+/* Cancel Subscription button styles */
+.button.cancel-subscription {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.button.cancel-subscription:hover {
+  background-color: #e60000;
+}
+
+
+/* Profile section styles */
+.section.profile {
+  margin-bottom: 2rem;
+}
+
+.section.profile h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.section.profile p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+}

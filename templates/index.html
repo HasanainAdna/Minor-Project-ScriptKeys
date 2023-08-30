@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Scriptkeys | Chat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/lib/languages/python.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/a11y-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+</head>
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <img src="ai.png" alt="Logo">
+    <h2>Chats</h2>
+  </div>
+</div>
+<button class="expand-button" id="expand-button">Expand</button>
+<ul class="sidebar-tabs" id="sidebar-tabs">
+  <li><a href="#">Chat Name</a></li>
+  <li><a href="#">Chat Name</a></li>
+  <li><a href="#">Chat Name</a></li>
+  <li><a href="#">Chat Name</a></li>
+  <li><a href="#">Chat Name</a></li>
+</ul>
+</div>
+<main>
+<div class="top-bar">
+  <div class="page-links">
+    <li><a href="http://127.0.0.1:5500/Home%20Page/Home.html">Home</a></li>
+    <li><a href="http://127.0.0.1:5500/Home%20Page/Pricing%20page/Pricing.html">Pricing</a></li>
+    <li><a href="http://127.0.0.1:5500/Home%20Page/Policy%20Page/Policy.html">Policy</a></li>
+    <li><a href="http://127.0.0.1:5500/Home%20Page/FAQs%20Page/FAQs.Html">FAQs</a></li>
+    <li><a href="http://127.0.0.1:5500/Home%20Page/Contact%20Page/Contact.html">Contact Us</a></li>
+    <li><a href="http://127.0.0.1:5500/Home%20Page/Download%20Page/Download.html#">Download</a></li>
+    <li><a href="http://127.0.0.1:5500/Home%20Page/Dashboard.html">Dashboard</a></li>
+    <li><a href="http://127.0.0.1:5500/Home%20Page/Typing%20Game/Game.html">Typing Game</a></li>
+  </div>
+</div>
+</main>
+
+<body>
+  <div class="container mt-5">
+    <h1 style="color:white">Chat Bot</h1>
+    <div class="chat-box mt-3">
+      <!-- Chat messages will be added here dynamically -->
+    </div>
+    <div class="form-group mt-3">
+      <textarea class="form-control" rows="3" placeholder="Type your message here" id="message-input"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary" id="send-btn">Send</button>
+  </div>
+  <script>
+    setInterval(highlightAll, 1000);
+
+    function highlightAll() {
+      document.querySelectorAll("pre code").forEach(block => {
+        hljs.highlightBlock(block);
+      });
+    }
+
+    const chatBox = document.querySelector(".chat-box");
+    const messageInput = document.querySelector("#message-input");
+    const sendBtn = document.querySelector("#send-btn");
+
+    function addMessage(message, isUserMessage) {
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add("mt-3", "p-3", "rounded");
+
+      if (isUserMessage) {
+        messageDiv.classList.add("user-message");
+      } else {
+        messageDiv.classList.add("bot-message");
+      }
+
+      messageDiv.innerHTML = `
+        <img src="{{ url_for('static', filename='images/user.png') }}" class="user-icon"><p>${message}</p>
+      `;
+
+      chatBox.appendChild(messageDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function sendMessage() {
+      const message = messageInput.value.trim();
+
+      if (message !== "") {
+        addMessage(message, true);
+
+        fetch("/api", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ message })
+        })
+          .then(response => response.json())
+          .then(data => {
+            messageInput.value = "";
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("mt-3", "p-3", "rounded", "bot-message");
+            
+            const content = data.content;
+            const hasCodeBlock = content.includes("```");
+
+            if (hasCodeBlock) {
+              const codeContent = content.replace(/```([\s\S]+?)```/g, '</p><pre><code>$1</code></pre><p>');
+              messageDiv.innerHTML = `<img src="{{ url_for('static', filename='images/gpt.jpg') }}" class="bot-icon"><p>${codeContent}</p>`;
+            } else {
+              messageDiv.innerHTML = `<img src="{{ url_for('static', filename='images/gpt.jpg') }}" class="bot-icon"><p>${content}</p>`;
+            }
+
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+          })
+          .catch(error => console.error(error));
+      }
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+    messageInput.addEventListener("keydown", event => {
+      if (event.keyCode === 13 && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
+
+<script>
+  const expandButton = document.getElementById('expand-button');
+  const sidebarTabs = document.getElementById('sidebar-tabs');
+
+  expandButton.addEventListener('click', () => {
+    sidebarTabs.classList.toggle('expanded');
+  });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="Dashboard.css">
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <h1>Logo</h1>
+      <p>Scriptkeys</p>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="http://127.0.0.1:5500/Home%20Page/Home.html">Home</a></li>
+      <li><a href="http://127.0.0.1:5500/Home%20Page/Dashboard.html">Dashboard</a></li>
+      <li><a href="#" onclick="showPage('accounts-page')">Accounts</a></li>
+      <li><a href="#" onclick="showPage('subscriptions-page')">Manage Subscriptions</a></li>
+      <li><a href="#" onclick="showPage('profile-page')">Profile</a></li>
+    </ul>
+  </div>
+  <main>
+    <div class="feature">
+      <div class="feature-image">
+        <img src="dashboard-icon-3.png" alt="Dashboard Image">
+      </div>
+      <div class="feature-text">
+        <h3>Welcome to the Dashboard</h3>
+        <p>ScriptKeys Dashboard is for managing subscriptions, accounts, profile information.</p>
+      </div>
+    </div>
+
+    <div id="accounts-page" style="display: none;">
+      <h2>Accounts Page</h2>
+      <p>This is the content for the Accounts page.</p>
+      <a href="other-accounts.html">Go to other accounts</a>
+    </div>
+
+    <div id="subscriptions-page" style="display: none;">
+      <h2>Manage Subscriptions Page</h2>
+      <p>This is the content for the Manage Subscriptions page.</p>
+      <button class="button cancel-subscription" onclick="cancelSubscription()">Cancel Subscription</button>
+    </div>
+
+    <div id="profile-page" style="display: none;">
+      <h2>Profile Page</h2>
+      <p>This is the content for the Profile page.</p>
+    </div>
+  </main>
+  <footer>
+    <p>© 2023 ScriptKeys. All rights reserved.</p>
+  </footer>
+
+  <script src="Dashboard.js"></script>
+  <script>
+    function showPage(pageId) {
+      var pages = document.querySelectorAll('div[id$="-page"]');
+      for (var i = 0; i < pages.length; i++) {
+        if (pages[i].id === pageId) {
+          pages[i].style.display = 'block';
+        } else {
+          pages[i].style.display = 'none';
+        }
+      }
+    }
+
+    function cancelSubscription() {
+      // Add your logic to cancel the subscription here
+      console.log('Subscription canceled');
+    }
+  </script>
+</body>
+
+</html>

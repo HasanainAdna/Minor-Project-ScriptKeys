@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ScriptKeys</title>
+    <link rel="stylesheet" href="contact.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="http://127.0.0.1:5500/Home%20Page/Home.html">Home</a></li>
+          <li><a href="http://127.0.0.1:5500/Home%20Page/Pricing%20page/Pricing.html">Pricing</a></li>
+          <li><a href="http://127.0.0.1:5500/Home%20Page/Policy%20Page/Policy.html">Policy</a></li>
+          <li><a href="http://127.0.0.1:5500/Home%20Page/FAQs%20Page/FAQs.Html">FAQs</a></li>
+          <li><a href="http://127.0.0.1:5500/Home%20Page/Contact%20Page/Contact.html">Contact Us</a></li>
+          <li><a href="http://127.0.0.1:5500/Home%20Page/Download%20Page/Download.html#">Download</a></li>
+          <li><a href="http://127.0.0.1:5000/">Chat Page</a></li>
+          <li><a href="http://127.0.0.1:5500/Home%20Page/Dashboard.html">Dashboard</a></li>
+          <li><a href="http://127.0.0.1:5500/Home%20Page/Typing%20Game/Game.html">Typing Game</a></li>
+        </ul>
+      </nav>
+      <h1>Contact Us</h1>
+    </header>
+    
+    <main>
+      <form
+  action="https://formspree.io/f/mqkorgbd"
+  method="POST">
+      <form action="contact.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="10" required></textarea>
+        
+        <button type="submit">Submit</button>
+      </form>
+      
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p>Email: support@scriptkeys.com</p>
+        <p>Phone: 555-555-5555</p>
+      </div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2023 ScriptKeys. All rights reserved.</p>
+    </footer>
+
+</html>
